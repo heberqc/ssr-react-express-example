@@ -5,21 +5,30 @@
   "main": "webpack.config.js",
   "dependencies": {
     "axios": "^0.20.0",
+    "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "nodemon": "^2.0.4",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:client": "webpack"
+    "build:client": "webpack",
+    "build:server": "babel src --out-dir dist",
+    "build": "npm run build:client && npm run build:server",
+    "start:client": "webpack --watch",
+    "start:server": "nodemon --exec babel-node src/server/index.js",
+    "start": "npm run start:client & npm run start:server"
   },
   "keywords": [],
   "author": "",

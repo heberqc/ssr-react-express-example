@@ -30,7 +30,7 @@ const App = (props) => {
 };
 
 App.defaultProps = {
-    items: []
+    items: [{id:1,label:'uno'}]
 };
 
 export default App;
