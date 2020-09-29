@@ -27,7 +27,7 @@
     "build:server": "babel src --out-dir dist",
     "build": "npm run build:client && npm run build:server",
     "start:client": "webpack --watch",
-    "start:server": "nodemon --exec babel-node src/server/index.js",
+    "start:server": "nodemon --exec babel-node --ext '.js,.jsx' --ignore 'dist' src/server/index.js",
     "start": "npm run start:client & npm run start:server"
   },
   "keywords": [],
