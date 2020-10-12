@@ -1,36 +1,57 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
+import { Route, Switch, NavLink } from "react-router-dom";
+import NotFound from './NotFound'
+import Explore from './Explore'
+import Details from './Details'
 
 const App = (props) => {
-    const [hide, setHide] = useState(false);
-    // const [items, setItems] = useState([]);
-    // useEffect(() => {
-    //     (async () => {
-    //         const response = await fetch('http://localhost:4000/items');
-    //         const newItems = await response.json();
+  const [hide, setHide] = useState(false);
+  // const [items, setItems] = useState([]);
+  // useEffect(() => {
+  //     (async () => {
+  //         const response = await fetch('http://localhost:4000/items');
+  //         const newItems = await response.json();
 
-    //         setItems(newItems);
-    //     })();
-    // }, []);
+  //         setItems(newItems);
+  //     })();
+  // }, []);
 
-    const handleClick = () => {
-        setHide(!hide);
-    };
+  const handleClick = () => {
+    setHide(!hide);
+  };
 
-    return (
-        <div>
-            <h1>Hola mundo</h1>
-            <button onClick={handleClick}>Toggle</button>
-            <ul>
-                {!hide && props.items.map(item =>
-                    <li key={item.id}>{item.label}</li>
-                )}
-            </ul>
-        </div>
-    );
+  return (
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/explore">Explore</NavLink>
+          </li>
+          <li>
+            <NavLink to="/details">Details</NavLink>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+      <Route
+          exact
+          path="/"
+          // render={props => <Home name="Alligator.io" {...props} />}
+          component={Explore}
+        />
+        <Route path="/explore" component={Explore} />
+        <Route path="/details" component={Details} />
+        <Route component={NotFound} />
+      </Switch>
+    </div>
+  );
 };
 
 App.defaultProps = {
-    items: [{id:1,label:'uno'}]
+  items: [],
 };
 
 export default App;

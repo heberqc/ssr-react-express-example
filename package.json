@@ -7,7 +7,8 @@
     "axios": "^0.20.0",
     "express": "^4.17.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
@@ -23,9 +24,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:client": "webpack",
+    "build:client": "webpack --mode=production",
     "build:server": "babel src --out-dir dist",
-    "build": "npm run build:client && npm run build:server",
+    "build": "NODE_ENV=production npm run build:client && NODE_ENV=production npm run build:server",
     "start:client": "webpack --watch",
     "start:server": "nodemon --exec babel-node --ext '.js,.jsx' --ignore 'dist' src/server/index.js",
     "start": "npm run start:client & npm run start:server"
