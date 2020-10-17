@@ -39,8 +39,8 @@ const App = (props) => {
       <Route
           exact
           path="/"
-          // render={props => <Home name="Alligator.io" {...props} />}
-          component={Explore}
+          render={props => <Explore {...props} />}
+          // component={Explore}
         />
         <Route path="/explore" component={Explore} />
         <Route path="/details" component={Details} />
