@@ -4,6 +4,8 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "axios": "^0.20.0",
     "express": "^4.17.1",
     "react": "^16.13.1",
@@ -31,7 +33,8 @@
     "build": "NODE_ENV=production npm run build:client && NODE_ENV=production npm run build:server",
     "start:client": "webpack --watch --mode development",
     "start:server": "nodemon --exec babel-node --ext '.js,.jsx' --ignore 'dist' src/server/index.js",
-    "start": "npm run start:client & npm run start:server"
+    "start": "npm run start:client & npm run start:server",
+    "clean": "rm -rf dist"
   },
   "keywords": [],
   "author": "",

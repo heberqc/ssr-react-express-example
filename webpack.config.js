@@ -13,7 +13,7 @@ module.exports = {
     entry: './index.js',
 
     output: {
-        publicPath: '/',
+        publicPath: '/static',
         path: path.resolve(__dirname, 'dist', 'static'),
         filename: 'bundle.js'
     },

@@ -3,6 +3,7 @@ import { Route, Switch, NavLink } from "react-router-dom";
 import NotFound from './NotFound'
 import Explore from './Explore'
 import Details from './Details'
+import Tabs from './Tabs';
 
 const App = (props) => {
   const [hide, setHide] = useState(false);
@@ -46,6 +47,7 @@ const App = (props) => {
         <Route path="/details" component={Details} />
         <Route component={NotFound} />
       </Switch>
+      <Tabs />
     </div>
   );
 };
