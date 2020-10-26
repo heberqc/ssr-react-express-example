@@ -1,41 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { Route, Switch, NavLink } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Route, Switch, NavLink } from 'react-router-dom';
 import NotFound from './NotFound'
 import Explore from './Explore'
 import Details from './Details'
 import Tabs from './Tabs';
+import AppBar from './AppBar';
+// import '../global.styl';
+// import styles from '../global.css';
 
 const App = (props) => {
   const [hide, setHide] = useState(false);
-  // const [items, setItems] = useState([]);
-  // useEffect(() => {
-  //     (async () => {
-  //         const response = await fetch('http://localhost:4000/items');
-  //         const newItems = await response.json();
-
-  //         setItems(newItems);
-  //     })();
-  // }, []);
 
   const handleClick = () => {
     setHide(!hide);
   };
 
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/explore">Explore</NavLink>
-          </li>
-          <li>
-            <NavLink to="/details">Details</NavLink>
-          </li>
-        </ul>
-      </nav>
+    <>
+      <AppBar />
       <Switch>
       <Route
           exact
@@ -48,7 +30,7 @@ const App = (props) => {
         <Route component={NotFound} />
       </Switch>
       <Tabs />
-    </div>
+    </>
   );
 };
 

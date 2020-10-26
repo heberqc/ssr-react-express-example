@@ -4,7 +4,7 @@ import fs from 'fs';
 import axios from 'axios';
 import serialize from 'serialize-javascript';
 import React from 'react';
-import ReactDom from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 
 import App from '../client/components/App';
@@ -17,7 +17,7 @@ app.get('/*', async (req, res) => {
   const context = {};
   const response = await axios('https://jsonplaceholder.typicode.com/todos');
   const items = response.data.map(item => ({id: item.id, label: item.title})).slice(0,10);
-  const app = ReactDom.renderToString(
+  const app = renderToString(
     <StaticRouter location={req.url} context={context}>
       <App items={items} />
     </StaticRouter>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
@@ -12,7 +13,7 @@ import {
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    maxWidth: 500,
+    // maxWidth: 500,
   },
 });
 
@@ -34,9 +35,9 @@ export default function IconLabelTabs() {
         textColor="secondary"
         aria-label="icon label tabs example"
       >
-        <Tab icon={<Phone />} label="RECENTS" />
-        <Tab icon={<Favorite />} label="FAVORITES" />
-        <Tab icon={<PersonPin />} label="NEARBY" />
+        <Tab icon={<Phone />} label="Home" component={NavLink} to="/" />
+        <Tab icon={<Favorite />} label="Explore" component={NavLink} to="/explore" />
+        <Tab icon={<PersonPin />} label="Details" component={NavLink} to="/details" />
       </Tabs>
     </Paper>
   );
